@@ -1,0 +1,544 @@
+Act as a senior Android architect, Kotlin expert, Firebase engineer, UI/UX designer, and AI integration specialist.
+
+I want you to build a complete production-level Android application called:
+
+“Grameen-Light: AI-Powered Smart Village Streetlight Monitoring and Energy Audit System”
+
+The application purpose is to help villagers report faulty streetlights and help Panchayat/admin monitor, assign, and resolve streetlight issues efficiently while reducing energy waste and improving public safety.
+
+====================================================
+CORE PROJECT GOAL
+====================================================
+
+The app should solve these real-world problems:
+
+1. Streetlights remain ON during daytime causing electricity waste.
+2. Streetlights remain OFF during nighttime causing public safety issues.
+3. Villagers currently have no easy complaint/reporting system.
+4. Panchayat lacks a centralized monitoring dashboard.
+5. Government needs analytics about energy saving and maintenance efficiency.
+
+This app should act as a “Citizen-led Smart Streetlight Audit System”.
+
+====================================================
+PLATFORM & TECH STACK
+====================================================
+
+Build this application using:
+
+Frontend:
+- Android Native
+- Kotlin
+- XML Layouts (preferred)
+- Material Design 3
+
+Architecture:
+- MVVM Architecture
+- Clean Architecture principles
+- Repository Pattern
+
+Backend:
+- Firebase Authentication
+- Firebase Firestore
+- Firebase Cloud Messaging
+- Firebase Storage
+
+Local Database:
+- Room Database
+
+Asynchronous:
+- Kotlin Coroutines
+- Flow/StateFlow
+
+Dependency Injection:
+- Hilt or Dagger Hilt
+
+Navigation:
+- Navigation Component
+
+Maps:
+- Google Maps SDK
+
+Image Loading:
+- Coil or Glide
+
+Networking:
+- Retrofit + OkHttp
+
+Offline Support:
+- WorkManager
+- Room DB synchronization
+
+AI Features:
+- Gemini API integration
+- TensorFlow Lite optional
+- Speech-to-Text support
+
+====================================================
+APPLICATION MODULES
+====================================================
+
+Build all modules professionally and separately.
+
+====================================================
+1. AUTHENTICATION MODULE
+====================================================
+
+Features:
+- Splash Screen
+- Onboarding Screens
+- User Login
+- Registration
+- Mobile OTP Authentication
+- Email/Password Login
+- Forgot Password
+- Logout
+- Role-based authentication
+
+Roles:
+- Villager/User
+- Panchayat Admin
+- Maintenance Worker
+
+Requirements:
+- Firebase Authentication
+- Session persistence
+- Input validation
+- Proper error handling
+
+====================================================
+2. HOME DASHBOARD
+====================================================
+
+Create a beautiful modern dashboard.
+
+Dashboard should display:
+- Total poles
+- Faulty poles
+- Complaints submitted
+- Complaints resolved
+- Energy saved
+- Nearby faulty lights
+- Quick report button
+
+Design:
+- Clean modern UI
+- Material cards
+- Bottom navigation
+- Smooth animations
+
+====================================================
+3. STREETLIGHT MAP MODULE
+====================================================
+
+Integrate Google Maps.
+
+Features:
+- Display all streetlight poles on map
+- Real-time pole status
+- Marker clustering
+- Pole details popup
+
+Pole status color coding:
+- Green = Working
+- Red = Fused
+- Yellow = ON during daytime
+- Gray = No data
+
+Each pole must contain:
+- Pole ID
+- GPS coordinates
+- Installation date
+- Last maintenance date
+- Current status
+- Complaint count
+
+Features:
+- Search poles
+- Filter by status
+- Nearby poles
+- Live updates
+
+====================================================
+4. QUICK COMPLAINT REPORTING SYSTEM
+====================================================
+
+Allow one-tap reporting.
+
+Flow:
+1. Select pole from map
+2. Choose issue type
+3. Add optional description
+4. Upload photo
+5. Submit complaint
+
+Complaint types:
+- Not working at night
+- ON during daytime
+- Flickering
+- Broken pole
+- Wiring issue
+- Physical damage
+
+Features:
+- Camera integration
+- Gallery upload
+- GPS auto-location
+- Timestamp
+- Complaint ID generation
+
+====================================================
+5. COMPLAINT TRACKING MODULE
+====================================================
+
+Features:
+- View complaint history
+- Complaint details screen
+- Complaint timeline
+- Complaint statuses
+
+Statuses:
+- Submitted
+- Assigned
+- In Progress
+- Fixed
+- Rejected
+
+Include:
+- Push notifications
+- Status updates
+- Repair proof images
+- Estimated resolution time
+
+====================================================
+6. ADMIN PANEL MODULE
+====================================================
+
+Admin features:
+- View all complaints
+- View village analytics
+- Assign maintenance workers
+- Update complaint status
+- View heatmap of faulty poles
+- Manage users
+- Generate reports
+
+Analytics:
+- Daily complaints
+- Monthly complaint trends
+- Energy waste trends
+- Resolution efficiency
+- High-risk areas
+
+Admin dashboard must include:
+- Charts
+- Graphs
+- Statistics cards
+
+====================================================
+7. MAINTENANCE WORKER MODULE
+====================================================
+
+Features:
+- Assigned tasks list
+- Task details
+- Navigation to location
+- Upload repair proof
+- Mark completed
+- Worker performance metrics
+
+====================================================
+8. ENERGY SAVING ANALYTICS
+====================================================
+
+Build an energy monitoring system.
+
+Calculate:
+- Estimated electricity waste
+- Estimated energy saved
+- Monthly energy savings
+- Carbon footprint reduction
+
+Example formula:
+Energy waste =
+(number_of_faulty_daytime_lights × wattage × extra_hours)
+
+Visualizations:
+- Pie charts
+- Line graphs
+- Monthly reports
+
+====================================================
+9. OFFLINE SUPPORT
+====================================================
+
+This is extremely important.
+
+Requirements:
+- App must work with poor internet
+- Store complaints locally
+- Sync automatically when internet returns
+
+Use:
+- Room Database
+- WorkManager
+- Sync queues
+
+====================================================
+10. AI / GENAI FEATURES
+====================================================
+
+Integrate AI features professionally.
+
+A. AI Complaint Classification
+- Analyze uploaded image
+- Detect:
+  - Fused bulb
+  - Daytime burning
+  - Broken pole
+  - Wire issue
+
+B. AI Chatbot Assistant
+Allow users to ask:
+- How to report issue
+- Complaint status
+- Nearby faulty poles
+- Safety information
+
+Use Gemini API.
+
+C. Voice Complaint Reporting
+Allow users to speak:
+“Pole near school not working”
+
+Convert:
+Speech → Text → Complaint
+
+Support:
+- English
+- Kannada
+- Hindi
+
+D. Predictive Maintenance
+Use historical complaint data to predict:
+- Frequently failing poles
+- High-risk areas
+- Maintenance priority zones
+
+====================================================
+11. NOTIFICATION SYSTEM
+====================================================
+
+Use Firebase Cloud Messaging.
+
+Notifications:
+- Complaint received
+- Complaint assigned
+- Complaint resolved
+- Emergency alerts
+- Maintenance updates
+
+====================================================
+12. SECURITY FEATURES
+====================================================
+
+Implement:
+- Secure Firebase rules
+- Role-based access control
+- Input sanitization
+- Secure image uploads
+- Authentication guards
+
+====================================================
+13. UI/UX REQUIREMENTS
+====================================================
+
+Create a modern professional UI.
+
+Requirements:
+- Material Design 3
+- Responsive layouts
+- Smooth animations
+- Dark mode support
+- Accessibility support
+- Clean typography
+- Attractive color palette
+
+Use:
+- Bottom navigation
+- Floating action button
+- Cards
+- Progress indicators
+- Skeleton loading
+
+====================================================
+14. PROJECT STRUCTURE
+====================================================
+
+Use professional folder structure.
+
+Suggested architecture:
+
+com.grameenlight
+│
+├── data
+│   ├── local
+│   ├── remote
+│   ├── repository
+│
+├── domain
+│   ├── model
+│   ├── usecase
+│
+├── presentation
+│   ├── auth
+│   ├── dashboard
+│   ├── maps
+│   ├── complaints
+│   ├── admin
+│   ├── worker
+│
+├── utils
+├── di
+├── services
+
+====================================================
+15. DATABASE DESIGN
+====================================================
+
+Create Firestore collections:
+
+Users
+Poles
+Complaints
+Repairs
+Notifications
+Analytics
+
+Design complete models/data classes.
+
+====================================================
+16. REQUIRED SCREENS
+====================================================
+
+Build these screens:
+
+1. Splash Screen
+2. Onboarding
+3. Login
+4. Register
+5. Dashboard
+6. Pole Map
+7. Pole Details
+8. Report Complaint
+9. Complaint History
+10. Complaint Details
+11. Admin Dashboard
+12. Worker Tasks
+13. Analytics
+14. Notifications
+15. Profile
+16. Settings
+
+====================================================
+17. PERFORMANCE REQUIREMENTS
+====================================================
+
+Requirements:
+- Fast loading
+- Optimized Firestore queries
+- Lazy loading
+- Pagination
+- Efficient image compression
+- Battery efficient location tracking
+
+====================================================
+18. TESTING
+====================================================
+
+Implement:
+- Unit Testing
+- UI Testing
+- Repository Testing
+- ViewModel Testing
+
+====================================================
+19. DELIVERABLES
+====================================================
+
+Generate:
+- Full Android project
+- Gradle configuration
+- Firebase integration
+- Complete source code
+- XML layouts
+- Kotlin classes
+- ViewModels
+- Repository classes
+- API services
+- Firestore rules
+- README documentation
+
+====================================================
+20. EXTRA ADVANCED FEATURES
+====================================================
+
+If possible also implement:
+
+- QR code scanning for poles
+- Heatmap visualization
+- SOS dark area reporting
+- Real-time analytics dashboard
+- AI-generated maintenance suggestions
+- Smart alerts for recurring failures
+
+====================================================
+21. CODE QUALITY REQUIREMENTS
+====================================================
+
+Requirements:
+- Clean code
+- Proper comments
+- Reusable components
+- SOLID principles
+- Error handling
+- Loading states
+- Empty states
+- Scalable architecture
+
+====================================================
+22. FINAL OUTPUT EXPECTATION
+====================================================
+
+I want:
+- Production-level Android app
+- Industry-standard architecture
+- Modern UI/UX
+- Real-time Firebase integration
+- AI-powered features
+- Clean maintainable codebase
+- Internship-ready and resume-worthy project
+
+Generate the project step-by-step beginning with:
+1. Project setup
+2. Dependencies
+3. Firebase configuration
+4. Architecture setup
+5. Authentication module
+6. Dashboard module
+7. Map module
+8. Complaint system
+9. Admin system
+10. AI integration
+11. Testing
+12. Final optimization
+
+Always explain:
+- Why each technology is used
+- Folder structure
+- Best practices
+- Scalability considerations
+- Security considerations
+
+Do not generate placeholder-level code.
+Generate realistic production-quality implementation.

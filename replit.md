@@ -1,45 +1,72 @@
-# [Project name]
+# Grameen-Light
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+AI-Powered Smart Village Streetlight Monitoring and Energy Audit System — a mobile app for villagers to report faulty streetlights and for Panchayat admins to monitor, assign, and resolve issues efficiently.
 
 ## Run & Operate
 
-- `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
-- `pnpm run typecheck` — full typecheck across all packages
-- `pnpm run build` — typecheck + build all packages
-- `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
-- `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
-- Required env: `DATABASE_URL` — Postgres connection string
+- Mobile app: runs via `artifacts/mobile: expo` workflow (Expo Go)
+- API Server: runs via `artifacts/api-server: API Server` workflow (port 8080)
+- `pnpm --filter @workspace/api-server run dev` — run the API server
 
 ## Stack
 
 - pnpm workspaces, Node.js 24, TypeScript 5.9
-- API: Express 5
-- DB: PostgreSQL + Drizzle ORM
-- Validation: Zod (`zod/v4`), `drizzle-zod`
-- API codegen: Orval (from OpenAPI spec)
-- Build: esbuild (CJS bundle)
+- Mobile: Expo (React Native) + Expo Router
+- UI: Custom Gen Z dark theme (electric green #00E676 accent on deep navy #060B18)
+- State: React Context (AuthContext) + AsyncStorage persistence
+- Fonts: Inter (400/500/600/700)
+- API: Express 5 (shared api-server artifact)
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/mobile/` — Expo React Native app
+  - `app/` — Expo Router file-based routes
+  - `app/(tabs)/` — 5-tab bottom navigation (Home, Poles, Report, Activity, Profile)
+  - `app/auth/` — Login & Register screens
+  - `app/complaint/[id].tsx` — Complaint detail with timeline
+  - `app/chat.tsx` — GrameenAI chatbot assistant
+  - `app/analytics.tsx` — Energy analytics dashboard
+  - `components/` — StatCard, ComplaintCard, PoleCard
+  - `constants/colors.ts` — Design tokens (dark Gen Z theme)
+  - `constants/mockData.ts` — Mock poles, complaints, analytics
+  - `context/AuthContext.tsx` — Auth with role-based access
+- `artifacts/api-server/` — Express backend
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- Dark-mode-first UI with electric green (#00E676) as primary action color — Gen Z aesthetic
+- Role-based access: Villager (report), Admin (manage), Worker (tasks) — all persisted via AsyncStorage
+- AsyncStorage used for local persistence in first build (Firebase integration can be added next)
+- react-native-reanimated for entrance animations on cards and stat counters
+- No UUID package (Expo Go incompatible) — using Date.now() + Math.random() for IDs
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+- Onboarding: 3-screen animated intro with AI-generated illustrations
+- Authentication: Email/password login with 3 demo accounts (Villager/Admin/Worker)
+- Dashboard: Role-aware stats (total poles, faulty, complaints, resolved), quick actions, village status
+- Poles Map: Searchable/filterable grid of all poles with color-coded status indicators
+- Quick Report: 3-step complaint wizard (select pole → issue type → details + photo)
+- Activity: Complaint history with filter tabs and status badges
+- Complaint Detail: Full timeline (Submitted → Assigned → In Progress → Fixed)
+- AI Chat: GrameenAI assistant with smart responses about poles, complaints, energy, safety
+- Energy Analytics: Energy waste/saved bar chart, monthly trend, AI predictive maintenance insight
+- Profile: User stats, achievement badges, settings, logout
 
 ## User preferences
 
-_Populate as you build — explicit user instructions worth remembering across sessions._
+- Build with Expo (React Native) — not native Kotlin/Android Studio
+- Gen Z UI with dynamic animations
+- Dark mode first
 
 ## Gotchas
 
-_Populate as you build — sharp edges, "always run X before Y" rules._
+- react-native-maps must be pinned to 1.18.0 if added — not currently installed
+- Do NOT add react-native-maps to plugins array in app.json
+- Do NOT use UUID package — crashes on iOS/Android
+- Colors are defined in constants/colors.ts with both light and dark keys (both use dark theme)
 
 ## Pointers
 
 - See the `pnpm-workspace` skill for workspace structure, TypeScript setup, and package details
+- Demo login credentials: villager@demo.com / admin@demo.com / worker@demo.com (all password: demo123)
